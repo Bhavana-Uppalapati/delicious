@@ -1,0 +1,29 @@
+#logo{
+    width: 150px;
+}
+li{
+    color: #290a0b;
+}
+li:hover{
+    text-decoration: underline;
+    cursor: pointer;
+    text-decoration-color: #f49204;
+}
+i{
+    color: #290a0b;
+    font-size: 25px;
+}
+@media screen and (max-width:576px){
+    #logo{
+        width: 90px;
+    }
+    .signin{
+        width:116px!important;
+    }
+}
+@media screen and (min-width:576px) and (max-width:786px){
+    ul{
+        width: 358px!important;
+    }
+   
+}

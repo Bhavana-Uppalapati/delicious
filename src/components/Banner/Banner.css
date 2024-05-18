@@ -1,0 +1,38 @@
+#bannerimg{
+    width: 312px;
+    height: 312px;
+    border-radius: 50%;
+    animation: rotate 10s linear infinite;
+}
+@keyframes rotate {
+    0%{
+       transform: rotate(0deg);        
+    }
+    100%{
+        transform:rotate(360deg);
+    }
+    
+}
+
+p{
+    font-size: 60px;
+    line-height: 1;
+    
+}
+#quote{
+    font-size: 20px;
+}
+@media screen and (max-width:576px){
+    p{
+        font-size: 20px;
+        line-height: 1;
+    }
+    #bannerimg{
+        width: 200px;
+        height: 200px;
+       
+    }
+    #quote{
+        font-size: 12px;
+    }
+}
