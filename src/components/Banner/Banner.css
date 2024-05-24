@@ -20,19 +20,42 @@ p{
     
 }
 #quote{
-    font-size: 20px;
+    font-size: 30px;
 }
 @media screen and (max-width:576px){
     p{
-        font-size: 20px;
+        font-size: 40px;
+        font-weight: 600;
         line-height: 1;
+        color: white;
+        z-index: 10;
+    }
+    #pdiv{
+        position: absolute;
     }
     #bannerimg{
-        width: 200px;
-        height: 200px;
-       
+        
+       display: none;
     }
     #quote{
-        font-size: 12px;
+        font-size: 25px;
+    }
+    .banner{
+        position: relative;
+        background-image: url(./cookies.jpg);
+        background-size: cover;
+        background-position: center;
+        height: 350px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    #dummy{
+        width:100vw;
+        height:100%;
+        background-color:rgba(0, 0, 0, 0.2);
+        position: absolute;
+        top:0;
+        left:0
     }
 }

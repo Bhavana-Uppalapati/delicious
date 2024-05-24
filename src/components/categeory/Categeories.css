@@ -1,0 +1,11 @@
+
+@media screen and (max-width:576px) {
+    .categories{
+         flex-direction: column;
+    }
+}
+@media screen and (min-width:576px) and (max-width:768px) {
+    .categories #cimg{
+         width: 120px!important;
+    }
+}

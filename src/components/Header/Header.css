@@ -1,8 +1,12 @@
 #logo{
-    width: 150px;
+    width: 130px;
+}
+a{
+    text-decoration: none !important;
 }
 li{
     color: #290a0b;
+    
 }
 li:hover{
     text-decoration: underline;
@@ -11,8 +15,17 @@ li:hover{
 }
 i{
     color: #290a0b;
-    font-size: 25px;
+    font-size: 35px;
 }
+
+input{
+    display: block;
+    margin-bottom: 10px;
+}
+button{
+    font-size: 20px!important;
+}
+
 @media screen and (max-width:576px){
     #logo{
         width: 90px;

@@ -1,90 +1,141 @@
 import React from 'react'
 import './items.css'
+import biryani from './assests/biryani.jpg'
+import shawarma from './assests/Chicken-Shawarma.jpg'
+import burger from './assests/burger.jpg'
+import cake from './assests/cake.jpg'
+import dosa from './assests/dosa.jpg'
+import Icecream from './assests/icecream.jpg'
+import Idly from './assests/idly2.jpg'
+import Momos from './assests/momos.jpg'
+import Noodles from './assests/Noodles.jpg'
+import north from './assests/north-indian-cuisine.jpg'
+import pizza from './assests/Pizza.jpg'
+import South from './assests/southindian.jpg'
 
 let items = [
     {
         id:"1",
-        src:'./assests/biryani.jpg',
-        title : "Biryani"
+        src: biryani,
+        title : "biryani"
     },
     {
         id:"2",
-        src:'./assests/Chicken-Shawarma.jpg',
+        src:shawarma,
         title: "Shawarma"
     },
     {
         id:"3",
-        src:'./assests/burger.jpg',
+        src:burger,
         title: "Burger"
     },
     {
         id:"4",
-        src:'./assests/cake.jpg',
+        src:cake,
         title: "Cake"
     },
     {
         id:"5",
-        src:'./assests/dosa.jpg',
+        src:dosa,
         title: "Dosa"
     },
     { 
         id:"6",
-        src:'./assests/icecream.jpg',
+        src:Icecream,
         title: "Icecream"
     },
     {
         id:"7",
-        src:'./assests/idly2.jpeg',
+        src:Idly,
         title: "Idly"
     },
     { 
         id:"8",
-        src:'./assests/momos.jpg',
+        src:Momos,
         title: "Momos"
     },
     {
         id:"9",
-        src:'./assests/Noodles.jpg',
+        src:Noodles,
         title: "Noodles"
     },
     {
         id:"10",
-        src:'./assests/north-indian-cuisine.jpg',
+        src:north,
         title: "North-Indian"
     },
     {
         id:"11",
-        src:'./assests/Pizza.jpg',
+        src:pizza,
         title: "pizza"
     },
     {
         id:"12",
-        src:'./assests/southindian.jpg',
+        src:South,
         title: "South-Indian"
-    },
+    }
+
 
 ]
 
-export default function Items() {
-  
+
+const ImageGallery = ( ) => {
+  // Ref for the container
+  const containerRef = React.useRef(null);
+
+  // Function to scroll left
+  const scrollLeft = () => {
+    if (containerRef.current) {
+      containerRef.current.scrollBy({
+        top: 0,
+        left: -200, // Adjust the value to control the scroll distance
+        behavior: 'smooth',
+      });
+    }
+  };
+
+  // Function to scroll right
+  const scrollRight = () => {
+    if (containerRef.current) {
+      containerRef.current.scrollBy({
+        top: 0,
+        left: 200, // Adjust the value to control the scroll distance
+        behavior: 'smooth',
+      });
+    }
+  };
+
   return (
-    
-    <div className='d-flex items'>
-       {
-        items.map((ele)=>{
-        
-          return (
-        <>
-          <img src={ele.src} alt="" />
-          <p key={ele.id}>{ele.title}</p>
-         
-        </>
-        )
-        })
-       }
-    </div>
-   
-       
+    <>
   
-  )
-}
+    <div className='d-flex justify-content-end scroll mb-4 mt-3'>
+    <button onClick={scrollLeft}><i className="fa-solid fa-arrow-left"></i></button>
+    <button onClick={scrollRight}><i className="fa-solid fa-arrow-right"></i></button>
+    </div>
+    <div >
+   
+      <div
+        className='images-container container ' 
+        ref={containerRef}
+        style={{
+          display: 'flex',
+      
+          scrollBehavior: 'smooth',
+          overflowX:"hidden"
+       
+        }}
+      >
+        {items.map((ele) => (
+          <div className="items" key={ele.id} style={{ minWidth: '150px', margin: '0 0px' }}>
+            <img src={ele.src} alt={ele.title} style={{width:"100px",height:"100px"}} className='mb-3' />
+            <p>{ele.title}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+    </>
+  );
+};
+
+export default ImageGallery;
+
