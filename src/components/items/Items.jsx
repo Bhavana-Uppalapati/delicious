@@ -131,6 +131,7 @@ const ImageGallery = ( ) => {
             <p>{ele.title}</p>
           </div>
         ))}
+        
       </div>
     </div>
     </>

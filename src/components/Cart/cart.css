@@ -1,0 +1,12 @@
+.popup{
+    overflow: scroll !important;
+    position: fixed;
+    left: 15%;
+    top: 15%;
+    box-shadow: 5px 5px 10px;
+    width: 70%;
+    max-height: 80vh;
+    background-color: white;
+    
+}
+

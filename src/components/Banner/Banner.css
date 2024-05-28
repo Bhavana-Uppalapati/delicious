@@ -23,7 +23,7 @@ p{
     font-size: 30px;
 }
 @media screen and (max-width:576px){
-    p{
+    #pdivp{
         font-size: 40px;
         font-weight: 600;
         line-height: 1;
@@ -39,9 +39,10 @@ p{
     }
     #quote{
         font-size: 25px;
+        color: white;
     }
     .banner{
-        position: relative;
+       
         background-image: url(./cookies.jpg);
         background-size: cover;
         background-position: center;
@@ -50,12 +51,12 @@ p{
         flex-direction: column;
         justify-content: center;
     }
-    #dummy{
+    /* #dummy{
         width:100vw;
         height:100%;
         background-color:rgba(0, 0, 0, 0.2);
         position: absolute;
         top:0;
         left:0
-    }
+    } */
 }

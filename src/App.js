@@ -12,6 +12,10 @@ import { CountProvider } from './components/context/Context';
 import Categeory from './components/categeory/Categeory';
 import Todaysspecial from './components/Todaysspecial/Todaysspecial';
 import Steps from './components/steps/Steps';
+import Orders from './components/orders/Orders';
+import Footer from './components/fotter/Footer';
+import { ToastContainer } from 'react-toastify';
+import Form from './components/Form/Form';
 
 function App() {
  
@@ -22,14 +26,16 @@ function App() {
 
  <BrowserRouter>
 <Header/>
+<ToastContainer theme="dark"/>
   <Routes> 
   <Route path="/" element={<> <Banner/> <Categeory/>
-   <Restaurant/>  <Steps/> </>}/>
+   <Restaurant/>  <Steps/>  <Footer/></>}/>
   <Route path="/Help" element={<Help/>}/>
-  <Route path="/restaurant/:id" element={ <><Items/> <Menu /> </> }/>
+  <Route path="/restaurant/:id" element={ <> <Menu /> </> }/>
   <Route path="/cart" element={<Cart/>}/>
-  
-  </Routes>
+  <Route path="/Orders" element={<Orders/>}/>
+  <Route path="/Form" element={<Form/>}/>
+   </Routes>
 
 </BrowserRouter>
  </CountProvider>
