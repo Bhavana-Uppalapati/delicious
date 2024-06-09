@@ -7,10 +7,8 @@ import 'react-toastify/dist/ReactToastify.css';
 
 export default function Menu() {
   const {count,setCount,cartlist,setCartlist} = useContext(context)
-  // const [buttonClicked, setButtonClicked] = useState(false);
-  
  
-  const [resMenu,setresMenu] = useState([])
+const [resMenu,setresMenu] = useState([])
   let [filteredmenu,setfilteredmenu] = useState([])
   const {id} = useParams()
   const menu = async ()=>{
@@ -31,19 +29,6 @@ export default function Menu() {
          
       }
   }
-  // function disable(id){
-  //   for(let obj of resMenu){
-  //     if(obj.menuid==id){
-
-  //       return "disabled"
-  //     }
-  //   }
-       
-  // }
-  // const handleAddToCart = (menuId) => {
-   
-  //   setButtonClicked(true);
-  // };
   function addtocart(id){
 
     let arr = resMenu.filter((obj)=>{
@@ -58,39 +43,10 @@ export default function Menu() {
     
   }
 
-//   function biryani() {
-
-//     // console.log(resMenu[0].type)
-//    let filteredmenu = resMenu.filter((data) => {
-//      return data.type === "biryani";
-//    });
-//    setresMenu(filteredmenu);
-  
-//  }
-//  function maincourse() {
-
-//   // console.log(resMenu[0].type)
-//  let filteredmenu = resMenu.filter((data) => {
-//    return data.type === "main course";
-//  });
-//  setresMenu(filteredmenu);
-
-// }
-
-
-
-  
 return (
     <div className='container mt-5 pt-5 '>
       
-      {/* <div className='d-flex justify-content-evenly'>
-       <p onClick={()=>{biryani()}}>Biryani</p>
-        <p onClick={()=>{maincourse()}}>Main course</p>
-        <p>Dessert</p>
-        <p>Roti</p>
-        <p>shakes</p>
-        <p>sides</p>
-        </div> */}
+    
         {
          (resMenu.length >0) ? ( resMenu.map((data,index)=>{
           return ( 

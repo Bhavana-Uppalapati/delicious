@@ -5,7 +5,7 @@ import Banner from './components/Banner/Banner';
 import Items from './components/items/Items';
 import Restaurant from './components/retaurant/Restaurant';
 import Help from './components/Help/Help';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, createBrowserRouter } from 'react-router-dom';
 import Menu from './components/Menu/Menu';
 import Cart from './components/Cart/Cart';
 import { CountProvider } from './components/context/Context';
@@ -19,8 +19,8 @@ import Form from './components/Form/Form';
 
 function App() {
  
- 
-  return (
+ return (
+    
     
  <CountProvider>
 
@@ -38,6 +38,7 @@ function App() {
    </Routes>
 
 </BrowserRouter>
+
  </CountProvider>
    
 

@@ -112,7 +112,7 @@ export default function Restaurant() {
         {filtereddata ? (
           filtereddata.map((userdata) => {
             return (
-              <Link to={"/restaurant/" + userdata.id}>
+              <Link to={"/restaurant/" + userdata.id }> 
                 <div className="card mt-4" style={{ width: "18rem" }} key={userdata.id}>
                   <img
                     src={userdata.image}
