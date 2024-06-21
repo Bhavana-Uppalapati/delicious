@@ -10,3 +10,85 @@
     
 }
 
+.cartdiv{
+    /* width: 80%; */
+    /* display: grid;
+    place-items: center; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    
+}
+.name{
+    width: 20%;
+}
+
+/* .name{
+    grid-column-start: 1;
+    grid-column-end:2
+}
+.price{
+    grid-column-start: 3;
+    grid-column-end: 4; 
+}
+.decbtn{
+    grid-column-start: 4;
+    grid-column-end: 5;
+}
+.quantity{
+    grid-column-start: 5;
+    grid-column-end: 6;
+} */
+.payment-form {
+    overflow: scroll!important;
+    width: 50vw;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+  }
+  
+  .payment-form form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .payment-form .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .payment-form .form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  .payment-form .form-group input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .payment-form .btn-success {
+    padding: 10px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+@media screen and (max-width:576px){
+  .cartdiv{
+    gap: 20px;
+}
+.cartdiv .deletebutton i{
+       margin-bottom: 1.5rem;
+}
+}
+
+

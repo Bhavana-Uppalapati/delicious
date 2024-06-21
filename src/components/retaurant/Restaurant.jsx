@@ -44,6 +44,7 @@ export default function Restaurant() {
       return true;
     });
     setfiltereddata(filtereddata);
+
   }
 
   function rating() {
@@ -58,13 +59,20 @@ export default function Restaurant() {
     });
     setfiltereddata(filtereddata);
   }
+  function nonveg() {
+    filtereddata = data.filter((data) => {
+      return data.veg == false;
+    });
+    setfiltereddata(filtereddata);
+    
+  }
   
   return (
     <>
-      <div className="d-flex justify-content-evenly mt-5 pt-5">
+      <div className="d-flex justify-content-center cateogryclass mt-5 pt-5">
       
         <button
-        className="mb-2"
+        className="mb-2 "
           style={{
             background: "transparent",
             borderRadius: "10px",
@@ -75,7 +83,7 @@ export default function Restaurant() {
           All
         </button>
         <button
-        className="mb-2"
+        className="mb-2 "
           onClick={rating}
          
           style={{
@@ -87,7 +95,7 @@ export default function Restaurant() {
           Top rated
         </button>
         <button
-        className="mb-2"
+        className="mb-2" 
           onClick={veg}
           style={{
             background: "transparent",
@@ -97,6 +105,17 @@ export default function Restaurant() {
         >
           veg
         </button>
+        <button
+        className="mb-2"
+          onClick={nonveg}
+          style={{
+            background: "transparent",
+            borderRadius: "10px",
+            // width: "130px",
+          }}
+        >
+          nonveg
+        </button>
         <input
           type="text"
           value={searchdata}
@@ -105,7 +124,7 @@ export default function Restaurant() {
             ressearch();
           }}
           placeholder="search"
-          style={{ borderRadius: "20px" }}
+          style={{ borderRadius: "20px",width:"250px" }}
         />
       </div>
       <div className="res container col-lg-12  mt-5">
@@ -116,7 +135,7 @@ export default function Restaurant() {
                 <div className="card mt-4" style={{ width: "18rem" }} key={userdata.id}>
                   <img
                     src={userdata.image}
-                    style={{ width: "100%", height: "150px" }}
+                    style={{ width: "100%", height: "180px" }} 
                     className="card-img-top resto"
                     alt="..."
                   />
@@ -136,7 +155,9 @@ export default function Restaurant() {
             );
           })
         ) : (
-          <p> loading</p>
+          <div class="spinner-border" role="status">
+           <span class="visually-hidden">Loading...</span>
+         </div>
         )}
       </div>
     </>

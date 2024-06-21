@@ -10,7 +10,8 @@ export function CountProvider({ children }) {
   let [filtereddata, setfiltereddata] = useState(null);
   let [data, setData] = useState([]);
   let [userName, setUserName] = useState("");
-  let [userLoggedIn, setuserLoggedIn] = useState("");
+  let [userLoggedIn, setuserLoggedIn] = useState(""); 
+  let [orderPlaced,setOrderPlaced] = useState("")
 
   return (
     <>
@@ -26,7 +27,7 @@ export function CountProvider({ children }) {
           setfiltereddata,
           userName,
           setUserName,
-          userLoggedIn, setuserLoggedIn
+          userLoggedIn, setuserLoggedIn,orderPlaced,setOrderPlaced
         }}
       >
         {children}

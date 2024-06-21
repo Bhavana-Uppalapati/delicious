@@ -1,103 +1,68 @@
 import React, { useContext, useState } from "react";
-
-
 import { Link, useNavigate } from "react-router-dom";
 import { context } from "../context/Context";
+import "./login.css"
 function Login() {
-  const [mobileNumber, setMobileNumber] = useState("");
-  const [email, setemail] = useState("");
+  const [loginNumber, setLoginNumber] = useState("");
+  const [loginPassword, setloginPassword] = useState("");
   const [err, setErr] = useState({
-    userNameErr: "",
-    mobileNumberErr: "",
-    emailErr: "",
+    loginNumberErr: "",
+    loginPasswordErr: "",
   });
-  const { userLoggedIn, setuserLoggedIn, userName, setUserName } =
-    useContext(context);
+  const { userLoggedIn, setuserLoggedIn } = useContext(context);
   const navigate = useNavigate();
-  let emailregexp =
-    /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
   function formValidation(e) {
     e.preventDefault();
-    let logging = true;
-    if (userName.length < 3) {
-      setErr((prev) => ({ ...prev, userNameErr: "Enter the proper Name" }));
-      logging = false;
-    } else {
-      setErr((prev) => ({ ...prev, userNameErr: "" }));
-      logging = true;
+    let registeredUsers = JSON.parse(localStorage.getItem("usersArr"));
+    console.log(registeredUsers);
+    let count = 0;
+    for (let obj of registeredUsers) {
+      if (obj.number === loginNumber && obj.password === loginPassword) { 
+        navigate("/Cart");
+      } else {
+        count++;
+      }
     }
-    if (mobileNumber.length !== 10) {
-      setErr((prev) => ({
-        ...prev,
-        mobileNumberErr: "Enter the proper Phone number",
-      }));
-      logging = false;
-    } else {
-      setErr((prev) => ({
-        ...prev,
-        mobileNumberErr: "",
-      }));
-      logging = true;
-    }
-    if (!emailregexp.test(email)) {
-      setErr((prev) => ({ ...prev, emailErr: "Enter the valid email id" }));
-      logging = false;
-    } else {
-      setErr((prev) => ({ ...prev, emailErr: "" }));
-      logging = true;
-    }
-    if (logging) {
-      setuserLoggedIn(true);
-      navigate("/Cart");
+    if (count === registeredUsers.length) {
+      alert("Enter valid details");
     }
   }
   return (
-    <div class="login-container d-flex justify-content-center align-items-center flex-column mt-5 pt-5">
-      <h2>Login to Delicious</h2>
-      <div className="form-container mt-3">
+    <div class="login-container">
+   
+      <div className="form-container">
         <form id="login-form">
           <div>
-            <input className="mt-3"
-            style={{width:"50vw"}}
+            <input
               type="text"
-              placeholder="Username"
-              value={userName}
+              placeholder="Enter the mobile Number"
+              value={loginNumber}
               onChange={(e) => {
-                setUserName(e.target.value);
+                setLoginNumber(e.target.value);
               }}
             />
-            {err.userNameErr && <p className="text-danger fs-5" >{err.userNameErr}</p>}
           </div>
           <div>
-            <input className="mt-3"
-             style={{width:"50vw"}}
-              type="text"
-              placeholder="Mobile Number"
-              value={mobileNumber}
+            <input
+              type="password"
+              placeholder="Enter the Password"
+              value={loginPassword}
               onChange={(e) => {
-                setMobileNumber(e.target.value);
+                setloginPassword(e.target.value);
               }}
             />
             {err.mobileNumberErr && (
-              <p className="text-danger fs-5">{err.mobileNumberErr}</p>
+              <p className="red-color">{err.mobileNumberErr}</p>
             )}
           </div>
-          <div>
-            <input className="mt-3"
-             style={{width:"50vw"}}
-              type="text"
-              placeholder="email address"
-              value={email}
-              onChange={(e) => {
-                setemail(e.target.value);
-              }}
-            />
-            {err.emailErr && <p className="text-danger fs-5">{err.emailErr}</p>}
-          </div>
-          <div className="Login-btn-container text-center mt-3 ">
-            <button className="btn btn-warning" type="submit" onClick={formValidation}>
+          <div className="Login-btn-container ">
+            <button className="btn btn-warning"type="submit" onClick={formValidation}>
               Login
             </button>
+          </div>
+          <div className="signupBtn">
+            <h4>Don't have an account? </h4>
+            <Link to={"/Form"}>Register</Link>
           </div>
         </form>
       </div>

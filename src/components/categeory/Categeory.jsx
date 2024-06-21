@@ -44,12 +44,12 @@ export default function Categeory() {
     }
   return (
 
-    <div className='container d-flex justify-content-between mt-5 pt-5 text-center categories'>
+    <div className='container d-flex justify-content-between mt-5 text-center categories'>
         {
             categeory.map((dataitem)=>{
+                console.log(dataitem)
                return (
-
-                <div key={categeory.id}>
+                   <div key={dataitem.id}>
                    <img id="cimage"src={dataitem.Image}  style={{width:"172px"}} alt="" onClick={()=>{
                     handleCategoryClick(dataitem.group)
                    }}/>

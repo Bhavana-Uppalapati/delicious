@@ -14,7 +14,8 @@ export default function Banner() {
  
   <p id="quote" className='pt-3'>One cannot think well, love well, sleep well, if one has not dined well</p>
  <div className='d-flex align-items-center '>
-<button className='btn btn-warning mt-3'>Ordernow</button>
+<button className='btn btn-warning mt-3'>Order Now</button>
+
  <i className="fa-solid fa-arrow-right ms-3 mt-3"></i> 
  </div>
   </div>

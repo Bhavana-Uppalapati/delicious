@@ -11,15 +11,28 @@
   
     box-shadow: 5px 5px  10px;
 }
-@media screen and (max-width:576px){
+.cateogryclass button{
+    border: 1px solid black;
+    width: 100px;
+    padding: 0;
+
+}
+
+@media screen and (max-width:786px){
     .res{
         margin: auto;
         justify-content: center;
+        gap: 25px;
     }
-
+    .cateogryclass{
+        flex-wrap: wrap;
+    }
 } 
-@media screen and (min-width:576px) and (max-width:2560px){
+@media screen and (min-width:786px) and (max-width:2560px){
     .res{
         justify-content: space-between;
+    }
+    .cateogryclass{
+        gap: 30px;
     }
 }

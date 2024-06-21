@@ -59,7 +59,6 @@ return (
           <p className='fs-4 '>{data.description}</p>
           <p className='fs-3 '> Calories- {data.calories}</p>
           </div>
-         
           <div>
           <button onClick={()=>{
             setCount(count+1)
@@ -73,13 +72,12 @@ return (
             </div>
             <hr />
             </>
-          
-        )
-         
-
-          })): <h1>no data found</h1>
+          )
+          })): <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
         } 
-    </div>
+    </div> 
   )
   
 }

@@ -16,6 +16,9 @@ import Orders from './components/orders/Orders';
 import Footer from './components/fotter/Footer';
 import { ToastContainer } from 'react-toastify';
 import Form from './components/Form/Form';
+import Home from './components/Home';
+import Signup from './components/signup/Signup';
+import Login from './components/Form/Form';
 
 function App() {
  
@@ -28,21 +31,16 @@ function App() {
 <Header/>
 <ToastContainer theme="dark"/>
   <Routes> 
-  <Route path="/" element={<> <Banner/> <Categeory/>
-   <Restaurant/>  <Steps/>  <Footer/></>}/>
+  <Route path="/" element={<Home />}/>
   <Route path="/Help" element={<Help/>}/>
   <Route path="/restaurant/:id" element={ <> <Menu /> </> }/>
   <Route path="/cart" element={<Cart/>}/>
-  <Route path="/Orders" element={<Orders/>}/>
-  <Route path="/Form" element={<Form/>}/>
+  <Route path="/Orders" element={<Orders/>}/> 
+  <Route path="/login" element={<Login/>}/> 
+  <Route path="/Form" element={<Signup/>}/> 
    </Routes>
-
 </BrowserRouter>
-
- </CountProvider>
-   
-
- 
+</CountProvider>
   );
 }
 

@@ -22,7 +22,7 @@ export default function Footer() {
             <p className='fs-5'>+917864732933</p>
         </div>
         </div>
-        <p className='fs-5 text-center mt-5 pb-3 '>copyright2024@delicious.com-All Rights Reserved</p>
+        <p className='fs-5 text-center mt-5 pb-3'>copyright2024@delicious.com-All Rights Reserved</p>
         </div>
   )
 }
