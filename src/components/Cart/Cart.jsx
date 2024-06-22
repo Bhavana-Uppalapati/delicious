@@ -5,9 +5,11 @@ import { toast } from "react-toastify";
 import './cart.css';
 import emptycart from "./empty-cart-1.jpg";
 import Swal from 'sweetalert2'
+import { ElementsConsumer,CardElement } from "@stripe/react-stripe-js";
+import { useStripe,useElements } from "@stripe/react-stripe-js";
 
 export default function Cart() {
-  const { cartlist, setCartlist, count, setCount, userName, orderPlaced, setOrderPlaced } = useContext(context);
+  const { cartlist, setCartlist, count, setCount, userName, orderPlaced, setOrderPlaced,stripepromise } = useContext(context);
   const [showOrderDetails, setShowOrderDetails] = useState(false);
   const [showPaymentForm, setShowPaymentForm] = useState(false);
   const navigate = useNavigate();
@@ -54,6 +56,11 @@ export default function Cart() {
     } else {
       setShowOrderDetails(true);
     }
+    
+    setTimeout(()=>{
+      navigate("/payment")
+    },100)
+   
   };
 
   const emptyCart = () => {
@@ -65,47 +72,56 @@ export default function Cart() {
     setShowOrderDetails(false);
   };
 
-  const handlePaymentSubmit = (e) => {
+  const handlePaymentSubmit =async (e) => {
     e.preventDefault();
     // handle payment logic here
     setShowPaymentForm(false);
     setCartlist([]);
     setOrderPlaced(true);
+    // const {stripe,elements} = stripepromise
+    // if(!stripe || !elements ) return;
+    // const card = elements.getElement(CardElement) 
+    // const result = await stripe.createToken(card) 
+    // if(result.error){
+    //   console.log(result.error.message)   
+    // }else{
+    //   console.log(result.token)
+    // }
     // toast("Payment successful!");
     // navigate("/Orders");
-    const swalWithBootstrapButtons = Swal.mixin({
-      customClass: {
-        confirmButton: "btn btn-success",
-        cancelButton: "btn btn-danger"
-      },
-      buttonsStyling: false
-    });
-    swalWithBootstrapButtons.fire({
-      title: "Are you sure?",
-      text: "You want to place the order!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonText: "Yes confirm!",
-      cancelButtonText: "No, cancel!",
-      reverseButtons: true
-    }).then((result) => {
-      if (result.isConfirmed) {
-        swalWithBootstrapButtons.fire({
-          title: "placed!",
-          text: "Your order has been placed.",
-          icon: "success"
-        });
-      } else if (
-        /* Read more about handling dismissals below */
-        result.dismiss === Swal.DismissReason.cancel
-      ) {
-        swalWithBootstrapButtons.fire({
-          title: "Cancelled",
-          text: "Your order is cancelled :)",
-          icon: "error"
-        });
-      }
-    });
+    // const swalWithBootstrapButtons = Swal.mixin({
+    //   customClass: {
+    //     confirmButton: "btn btn-success",
+    //     cancelButton: "btn btn-danger"
+    //   },
+    //   buttonsStyling: false
+    // });
+    // swalWithBootstrapButtons.fire({
+    //   title: "Are you sure?",
+    //   text: "You want to place the order!",
+    //   icon: "warning",
+    //   showCancelButton: true,
+    //   confirmButtonText: "Yes confirm!",
+    //   cancelButtonText: "No, cancel!",
+    //   reverseButtons: true
+    // }).then((result) => {
+    //   if (result.isConfirmed) {
+    //     swalWithBootstrapButtons.fire({
+    //       title: "placed!",
+    //       text: "Your order has been placed.",
+    //       icon: "success"
+    //     });
+    //   } else if (
+    //     /* Read more about handling dismissals below */
+    //     result.dismiss === Swal.DismissReason.cancel
+    //   ) {
+    //     swalWithBootstrapButtons.fire({
+    //       title: "Cancelled",
+    //       text: "Your order is cancelled :)",
+    //       icon: "error"
+    //     });
+    //   }
+    // });
   };
 
   const navigatetohome = () => {
@@ -139,7 +155,7 @@ export default function Cart() {
             </div>
           ))}
           <div className="d-flex justify-content-center align-items-center flex-column mt-5">
-            <button onClick={handleOrder} className="btn btn-warning">Order</button>
+            <button onClick={handleOrder} className="btn btn-warning">Order</button> 
             <p className="mt-3 fs-3">total: {handlePrice()}</p>
           </div>
         </div> 
@@ -151,8 +167,7 @@ export default function Cart() {
         </div>
       )}
       
-
-      <div className="text-center mt-5">
+<div className="text-center mt-5">
         {showOrderDetails && (
           <div className="popup">
             <button id="close" onClick={() => setShowOrderDetails(false)}>&times;</button>
@@ -186,10 +201,19 @@ export default function Cart() {
               <label htmlFor="cvv">CVV</label>
               <input type="text" id="cvv" name="cvv" required />
             </div>
-            <button type="submit" className="btn btn-success">Submit Payment</button> 
+            <button type="submit" className="btn btn-success" >Submit Payment</button> 
           </form>
         </div>
       )}
     </>
   );
 }
+//  export function stripeitegration(){ 
+//   return (
+//     <ElementsConsumer>
+//       {({ stripe, elements }) => (
+//         <Cart stripe={stripe} elements={elements} />
+//       )}
+//     </ElementsConsumer>
+//   );
+//  }
