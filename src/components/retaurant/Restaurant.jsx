@@ -69,13 +69,14 @@ export default function Restaurant() {
   
   return (
     <>
-      <div className="d-flex justify-content-center cateogryclass mt-5 pt-5">
+      <div className="d-flex justify-content-center align-items-center cateogryclass mt-5 pt-5">
       
         <button
         className="mb-2 "
           style={{
             background: "transparent",
             borderRadius: "10px",
+            height:"37px"
             // width: "130px",
           }}
           onClick={All}
@@ -89,6 +90,7 @@ export default function Restaurant() {
           style={{
             background: "transparent",
             borderRadius: "10px",
+              height:"37px"
             // width: "130px",
           }}
         >
@@ -100,6 +102,7 @@ export default function Restaurant() {
           style={{
             background: "transparent",
             borderRadius: "10px",
+              height:"37px"
             // width: "130px",
           }}
         >
@@ -111,6 +114,7 @@ export default function Restaurant() {
           style={{
             background: "transparent",
             borderRadius: "10px",
+              height:"37px"
             // width: "130px",
           }}
         >

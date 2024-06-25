@@ -54,12 +54,13 @@ export default function Cart() {
       toast("please add items");
       navigate("/");
     } else {
-      setShowOrderDetails(true);
+      navigate("/payment") 
+      // setShowOrderDetails(true);
     }
     
-    setTimeout(()=>{
-      navigate("/payment")
-    },100)
+    // setTimeout(()=>{
+    //   navigate("/payment") 
+    // },100)
    
   };
 

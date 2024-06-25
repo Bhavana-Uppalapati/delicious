@@ -14,21 +14,13 @@ import {
 import Menu from "./components/Menu/Menu";
 import Cart from "./components/Cart/Cart";
 import { CountProvider } from "./components/context/Context";
-import Categeory from "./components/categeory/Categeory";
-import Todaysspecial from "./components/Todaysspecial/Todaysspecial";
-import Steps from "./components/steps/Steps";
 import Orders from "./components/orders/Orders";
-import Footer from "./components/fotter/Footer";
 import { ToastContainer } from "react-toastify";
-import Form from "./components/Form/Form";
 import Home from "./components/Home";
 import Signup from "./components/signup/Signup";
 import Login from "./components/Form/Form";
-import { loadStripe } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
-import { useContext } from "react";
-import context from "react-bootstrap/esm/AccordionContext";
 import StripePayment from "./components/StripePayment";
+import Sucess from "./components/Sucess";
 
 
 function App() {
@@ -55,6 +47,7 @@ function App() {
           <Route path="/login" element={<Login/>} /> 
           <Route path="/Form" element={<Signup/>} /> 
           <Route path="/payment" element={<StripePayment/>}/>
+          <Route path="/Sucess" element={<Sucess/>}/>
         </Routes>
         {/* </Elements> */}
       </BrowserRouter>

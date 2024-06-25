@@ -9,7 +9,9 @@ export default function Orders() {
   let navigatetohome = useNavigate()
   const ordernavigatetohome = () =>{
     navigatetohome("/") 
+    
   }
+  console.log(orderPlaced) 
  return (
     <div className='container d-flex flex-column justify-content-center align-items-center text-center' style={{ height: "80vh" }}>
       {orderPlaced ? (
