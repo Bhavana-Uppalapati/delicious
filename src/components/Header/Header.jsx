@@ -1,4 +1,5 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useRef, useState ,useEffect} from "react";
+import axios from "axios";
 import logo from "./logo3.jpeg";
 import "./Header.css";
 import { Link } from "react-router-dom";
@@ -11,6 +12,18 @@ export default function Header() {
   if (cartlist.length === 0) {
     setCount(0);
   }
+  const [currLocation, setCurrLocation] = useState({});
+  // const [currLocationJs, setCurrLocationJs] = useState({});
+  useEffect(() => {
+    getLocation();
+    // getLocationJs();
+  }, []);
+
+  
+  const getLocation = async () => {
+    const location = await axios.get("https://ipapi.co/json");
+    setCurrLocation(location.data);
+  };
 
   return (
     <>
@@ -35,13 +48,14 @@ export default function Header() {
                 className="navbar-nav justify-content-evenly w-100"
                 // style={{ width: "100%" }}
               >
+                 <li className="nav-item fs-3"> <i class="fa-solid fa-location-arrow"></i>{currLocation.city}</li>
                 <Link to="/">
                   
                   <li className="nav-item fs-3">Home</li>
                 </Link>
 
-                {/* <li className="nav-item fs-3">Menu</li> */}
-                <Link to="/Orders">   <li className="nav-item fs-3">Orders</li></Link>
+{/*                
+                <Link to="/Orders">   <li className="nav-item fs-3">Orders</li></Link> */}  
               
                 <Link to="/Help">
                   <li className="nav-item fs-3">Help</li>
